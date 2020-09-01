@@ -1,6 +1,11 @@
-//import your db
-//import your models
+const db = require('./db.js');
+const cities = require('./cities');
 
-//state your model associations (hasOne etc)
+const syncAndSeed = async () => {
 
-//export your db and Models (so they all can be imported from a single central location)
+}
+
+module.exports = {
+    db,
+    syncAndSeed
+}
