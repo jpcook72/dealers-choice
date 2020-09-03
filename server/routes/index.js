@@ -10,6 +10,9 @@ router.get('/:abbr', async (req,res,next) => {
     const cities = await City.findAll({
         where: {
             stateId: stateId
+        },
+        include: {
+            model: State
         }
     });
     res.send(cities);

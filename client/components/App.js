@@ -17,8 +17,8 @@ export default class App extends React.Component {
     const loadWords = async () => {
       const hash = window.location.hash.slice(1)
       const cities = await axios.get(`/api/${hash}`);
-      console.log(cities)
-      this.setState({ cities: [...cities.data] });
+      console.log('cities', cities.data)
+      this.setState({ cities: cities.data });
       
     }
     window.addEventListener('hashchange', async()=> {
@@ -37,11 +37,11 @@ export default class App extends React.Component {
       <div className="App">
           {
             this.state.cities.length && 
-            (<div>
-              <CityText cities={this.state.cities}/>
-            </div>) 
+            <div>
+              <CityText cities={this.state.cities} />
+            </div> 
           }
-          <div className="map">
+          <div className={`map ${this.state.cities.length && 'cutWidth'}`}>
             <USAMap onClick={this.mapHandler} />
           </div>
       </div>

@@ -15,6 +15,19 @@ body {
     align-items: center
 }
 
+.cutWidth {
+    width: 80%
+}
+
+.capital {
+    font-weight: bold;
+}
+
+.stateName {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 path {
     pointer-events: all;
   }

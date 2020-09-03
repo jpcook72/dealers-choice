@@ -7,7 +7,7 @@ State.hasMany(City);
 City.belongsTo(State);
 
 const syncAndSeed = async () => {
-    await db.sync();
+    await db.sync({force: true});
     let stateArr = [];
     let cityArr = [];
     cities.forEach(city => {
