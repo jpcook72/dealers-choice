@@ -1,6 +1,18 @@
 const router = require("express").Router()
-//import models from /db
+const { db, State, City } = require('../db')
 
-//routes go here
+router.get('/:abbr', async (req,res,next) => {
+    const state = await State.findAll({
+        where: 
+            {abbr : req.params.abbr}
+    });
+    const stateId = state[0].id;
+    const cities = await City.findAll({
+        where: {
+            stateId: stateId
+        }
+    });
+    res.send(cities);
+})
 
 module.exports = router
